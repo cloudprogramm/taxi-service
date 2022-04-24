@@ -5,7 +5,9 @@
       Car list
       <a class="btn btn-primary" style="float: right" href="{% url 'taxi:car-create' %}">Create</a>
   </h1>
-  {% if car_list %}
+  {% include "includes/search_bar.html" %}
+
+  {% if object_list %}
       <table class="table">
         <tr>
             <th>Model</th>
@@ -14,7 +16,7 @@
             <th>Delete</th>
         </tr>
 
-        {% for car in car_list %}
+        {% for car in object_list %}
             <tr>
                 <td>
                     {{ car.model }}
