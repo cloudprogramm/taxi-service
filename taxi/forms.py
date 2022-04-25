@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator, MaxLengthValidator
@@ -20,7 +19,7 @@ class DriverCreateForm(UserCreationForm):
 
     class Meta:
         model = Driver
-        fields = UserCreationForm.Meta.fields = ("license_number", "first_name", "last_name",)
+        fields = UserCreationForm.Meta.fields = ("license_number", "username", "first_name", "last_name",)
 
     def clean_license_number(self):
         license_number = self.cleaned_data["license_number"]
